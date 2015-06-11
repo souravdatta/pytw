@@ -22,11 +22,10 @@ def home():
 def login(provider_name):
     response = make_response()
     result = Authomatic(CONFIG, 'secret').login(WerkzeugAdapter(request, response), provider_name)
-    print(result)
     if result:
         if result.user:
             result.user.update()
-            return render_template('home.html', user='Logged In')
+            return render_template('home.html', user=result.user)
     return redirect('/')
 
 if __name__ == '__main__':
