@@ -15,8 +15,7 @@ def index():
 @app.route('/login')
 def login():
     auth = tweepy.OAuthHandler(CONFIG['tw']['consumer_key'],
-                               CONFIG['tw']['consumer_secret'],
-                               'http://souravdatta.pythonanywhere.com/home')
+                               CONFIG['tw']['consumer_secret'])
 
     if auth is None:
         return redirect('/')
