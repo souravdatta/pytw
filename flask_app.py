@@ -6,8 +6,7 @@ from config import CONFIG
 
 
 app = Flask(__name__)
-app.debug = True
-app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RTWoaWOA'
+app.debug = False
 
 @app.route('/')
 def index():
@@ -28,6 +27,8 @@ def login():
     except tweepy.TweepError as ex:
         print('Failed to get request token ', ex)
         return redirect('/')
+
+app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RTWoaWOA'
 
 if __name__ == '__main__':
     app.run()
