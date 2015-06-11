@@ -1,6 +1,10 @@
 __author__ = 'Sourav Datta'
 
 from flask import *
+from authomatic.adapters import WerkzeugAdapter
+from authomatic import Authomatic
+from config import CONFIG
+
 
 app = Flask(__name__)
 
@@ -10,7 +14,7 @@ def index():
 
 @app.route('/home')
 def home():
-    return render_template('home.html')
+    return render_template('home.html', user='Sourav')
 
 if __name__ == '__main__':
     app.run()
