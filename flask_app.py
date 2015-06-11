@@ -7,6 +7,7 @@ from config import CONFIG
 
 app = Flask(__name__)
 app.debug = True
+app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RTWoaWOA'
 
 @app.route('/')
 def index():
