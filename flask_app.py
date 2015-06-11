@@ -1,9 +1,7 @@
 __author__ = 'Sourav Datta'
 
 from flask import *
-import authomatic
-from authomatic.adapters import WerkzeugAdapter
-from authomatic import Authomatic
+import tweepy
 from config import CONFIG
 
 
@@ -14,19 +12,22 @@ app.debug = True
 def index():
     return render_template('index.html')
 
-@app.route('/home')
-def home():
-    return render_template('home.html', user='Hola')
+@app.route('/login')
+def login():
+    auth = tweepy.OAuthHandler(CONFIG['tw']['consumer_key'],
+                               CONFIG['tw']['consumer_secret'],
+                               'http://souravdatta.pythonanywhere.com/home')
 
-@app.route('/login/<provider_name>', methods=['GET', 'POST'])
-def login(provider_name):
-    response = make_response()
-    result = Authomatic(CONFIG, 'secret').login(WerkzeugAdapter(request, response), provider_name)
-    if result:
-        if result.user:
-            result.user.update()
-            return render_template('home.html', user=result.user)
-    return redirect('/')
+    if auth is None:
+        return redirect('/')
+
+    try:
+        redirect_url = auth.get_authorization_url()
+        session['request_token'] = auth.request_token
+        return redirect(redirect_url)
+    except tweepy.TweepError as ex:
+        print('Failed to get request token ', ex)
+        return redirect('/')
 
 if __name__ == '__main__':
     app.run()
