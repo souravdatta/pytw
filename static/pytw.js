@@ -9,6 +9,7 @@ function post_tweet() {
             success: function (d, statue, req) {
                 if (d == 'success') {
                     var div = $(document.createElement('div'));
+                    div.text(twtxt);
                     div.addClass('tweet');
                     tweets.prepend(div);
                     $('#tw-text').text('').focus();
