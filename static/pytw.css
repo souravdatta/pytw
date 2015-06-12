@@ -130,6 +130,7 @@ body {
     padding: 5px;
     margin-top: 4px;
     overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .tweet {
