@@ -3,7 +3,7 @@
 <div class="twitter-container">
     <div class="tweet-box">
         <div class="tw-edit" id="tw-text" contenteditable="true"></div>
-        <button class="tw-button" id="tw-post">Tweet</button>
+        <button class="tw-button" id="tw-post" onclick="post_tweet()">Tweet</button>
     </div>
     <div class="tweet-feed">
         {% for t in tweets %}
@@ -11,11 +11,4 @@
         {% endfor %}
     </div>
 </div>
-<script>
-    var twbtn = $('#tw-button');
-    twbtn.click(function () {
-        alert("Ah, tweet eh?");
-    });
-</script>
-
 {% endblock %}
