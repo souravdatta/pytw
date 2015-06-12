@@ -5,6 +5,7 @@
         <div class="tw-edit" id="tw-text" contenteditable="true"></div>
         <br/>
         <button class="tw-button" id="tw-post" onclick="post_tweet()">Tweet</button>
+        <button class="tw-button" id="tw-refresh" onclick="get_tweets()">Refresh</button>
     </div>
     <div class="tweet-feed" id="tw-feed">
         {% for t in tweets %}
