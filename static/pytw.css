@@ -124,18 +124,20 @@ html, body {
     border-radius: 5px;
     padding: 5px;
     margin-top: 4px;
+    overflow: auto;
 }
 
 .tweet {
     position: relative;
     display: block;
     width: 98%;
+    left: 1%;
     height: 40px;
     margin: 2px;
     background-color: white;
     font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
     font-size: large;
     color: rgba(20, 10, 10, 0.5);
-    padding: 2px;
+    padding: 5px;
     overflow: auto;
 }
