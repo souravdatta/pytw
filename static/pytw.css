@@ -82,7 +82,7 @@ html, body {
     display: block;
     width: 100%;
     height: 16%;
-    background-color: rgba(225, 225, 235, 0.6);
+    /*background-color: rgba(225, 225, 235, 0.6);*/
     padding: 5px;
     border-radius: 5px;
 }
@@ -98,6 +98,7 @@ html, body {
     float: left;
     margin: 2px;
     overflow: auto;
+    border: 1px solid aqua;
 }
 
 .tw-button {
@@ -123,4 +124,18 @@ html, body {
     border-radius: 5px;
     padding: 5px;
     margin-top: 4px;
+}
+
+.tweet {
+    position: relative;
+    display: block;
+    width: 98%;
+    height: 40px;
+    margin: 2px;
+    background-color: white;
+    font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-size: large;
+    color: rgba(20, 10, 10, 0.5);
+    padding: 2px;
+    overflow: auto;
 }
