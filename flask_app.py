@@ -14,6 +14,18 @@ api = None
 def index():
     return render_template('index.html', logo_message='PyTw Simple App')
 
+@app.route('/post/<tweet>')
+def post_tweet(tweet):
+    if tweet == '':
+        return
+    if not session['logged_in']:
+        return redirect('/')
+    global api
+    if api is not None:
+        api.update_status(status=tweet)
+        return 'success'
+    return 'failed'
+
 @app.route('/home')
 def home():
     args = request.args
@@ -28,6 +40,7 @@ def home():
     auth.request_token = token
     try:
         auth.get_access_token(verifier)
+        session['logged_in'] = True
     except tweepy.TweepError as ex:
         print('Failed to get access token: ', ex)
         return redirect('/')

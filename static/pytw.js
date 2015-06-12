@@ -1,5 +1,17 @@
 function post_tweet() {
-    alert('Tweet!');
+    var twtxt = $('#tw-text').text();
+    if (twtxt == '') return;
+    $.ajax(
+        ('/post/' + twtxt),
+        {
+            success: function (d, statue, req) {
+                alert(d);
+            },
+            error: function () {
+                alert('Could not complete request, something went wrong!');
+            }
+        }
+    );
 }
 
 $(document).ready(function () {
