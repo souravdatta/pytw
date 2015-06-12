@@ -45,6 +45,28 @@ function get_tweets() {
     );
 }
 
+function check_limit() {
+    var twbox = var twtxt = $('#tw-text');
+    var text = twbox.text();
+
+    if (text == '') return;
+
+    var limit = 140 - text.length;
+
+    if (limit > 20) {
+        twbox.removeClass('warning');
+        twbox.removeClass('error');
+    }
+    else if ((limit > 0) && (limit <= 20))  {
+        twbox.removeClass('error');
+        twbox.addClass('warning');
+    }
+    else if (limit <= 0) {
+        twbox.removeClass('warning');
+        twbox.addClass('error');
+    }
+}
+
 $(document).ready(function () {
     console.log('Ready...');
 });

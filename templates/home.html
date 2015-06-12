@@ -2,7 +2,7 @@
 {% block page %}
 <div class="twitter-container">
     <div class="tweet-box">
-        <div class="tw-edit" id="tw-text" contenteditable="true"></div>
+        <div class="tw-edit" id="tw-text" contenteditable="true" onkeypress="check_limit()"></div>
         <br/>
         <button class="tw-button" id="tw-post" onclick="post_tweet()">Tweet</button>
         <button class="tw-button" id="tw-refresh" onclick="get_tweets()">Refresh</button>
