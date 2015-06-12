@@ -21,13 +21,12 @@ def home():
         flash('Could not login, access denied!')
         return redirect('/')
     verifier = args.get('oauth_verifier', '')
-    print('verifier={}'.format(verifier))
     auth = tweepy.OAuthHandler(CONFIG['tw']['consumer_key'],
                                CONFIG['tw']['consumer_secret'])
     token = session['request_token']
-    print('token = {}'.format(token))
     del session['request_token']
-    auth.request_token = token
+    #auth.request_token = token
+    auth.set_request_token(token[0], token[1])
     try:
         auth.get_access_token(verifier)
         session['access_token'] = auth.access_token
@@ -50,7 +49,8 @@ def login():
 
     try:
         redirect_url = auth.get_authorization_url()
-        session['request_token'] = auth.request_token
+        #session['request_token'] = auth.request_token
+        session['request_token'] = (auth.request_token.key, auth.request_token.secret)
         return redirect(redirect_url)
     except tweepy.TweepError as ex:
         print('Failed to get request token ', ex)
