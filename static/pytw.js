@@ -1,6 +1,7 @@
 function post_tweet() {
     var twtxt = $('#tw-text').text();
     var tweets = $('#tw-feed');
+    var count = $('#tw-count');
 
     if (twtxt == '') return;
 
@@ -14,7 +15,6 @@ function post_tweet() {
             success: function (d, statue, req) {
                 if (d == 'success') {
                     get_tweets();
-                    $('#tw-text').text('').focus();
                 }
                 else {
                     alert('Could not complete request, something went wrong!');
@@ -25,6 +25,8 @@ function post_tweet() {
             }
         }
     );
+    $('#tw-text').text('').focus();
+    count.text(140);
 }
 
 function get_tweets() {
