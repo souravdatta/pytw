@@ -12,7 +12,7 @@ api = None
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', logo_message='PyTw')
 
 @app.route('/home')
 def home():
@@ -37,11 +37,8 @@ def home():
     except tweepy.TweepError as ex:
         print('Failed to create twitter api: ', ex)
         return redirect('/')
-    try:
-        api.update_status(status='Hello, tweepy!')
-    except tweepy.TweepError as ex:
-        print('Failed to update status: ', ex)
-    return render_template('home.html')
+    user = api.me()
+    return render_template('home.html', logo_message='Hi {}'.format(user.screen_name))
 
 
 @app.route('/login')
@@ -60,7 +57,7 @@ def login():
         print('Failed to get request token: ', ex)
         return redirect('/')
 
-app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RTWoaWOA'
+app.secret_key = 'AzerBaizanA0Zr98j/3yX R~XHH!jmN]LWX/,?RTWoaWOA'
 
 if __name__ == '__main__':
     app.run()
