@@ -11,6 +11,8 @@ function post_tweet() {
                     var div = $(document.createElement('div'));
                     div.addClass('tweet');
                     tweets.prepend(div);
+                    twtxt.text('');
+                    twtxt.focus();
                 }
                 else {
                     alert('Could not complete request, something went wrong!');
