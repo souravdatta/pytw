@@ -52,6 +52,10 @@ def home():
     except tweepy.TweepError as ex:
         print('Failed to create twitter api: ', ex)
         return redirect('/')
+    return redirect('/twitter')
+
+@app.route('/twitter')
+def twitter():
     user = api.me()
     tweets = []
     for status in tweepy.Cursor(api.user_timeline).items(10):
@@ -61,7 +65,6 @@ def home():
                            logo_message='Hi {}'.format(user.screen_name),
                            tweets=tweets
                            )
-
 
 @app.route('/login')
 def login():
