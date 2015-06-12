@@ -3,6 +3,7 @@ __author__ = 'Sourav Datta'
 from flask import *
 import tweepy
 from config import CONFIG
+import json
 
 
 app = Flask(__name__)
@@ -20,13 +21,23 @@ def index():
 def post_tweet(tweet):
     if tweet == '':
         return
-    if not session['logged_in']:
-        return redirect('/')
+    if 'logged_in' not in session:
+        return 'failed'
     global api
     if api is not None:
         api.update_status(status=tweet)
         return 'success'
     return 'failed'
+
+@app.route('/timeline')
+def timeline():
+    if 'logged_in' not in session:
+        return json.dumps([])
+    tweets = []
+    global api
+    for status in tweepy.Cursor(api.user_timeline).items(10):
+        tweets.append(status.text)
+    return json.dumps(tweets)
 
 @app.route('/home')
 def home():
