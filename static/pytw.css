@@ -157,3 +157,10 @@ body {
 .error {
     color: red;
 }
+
+.count {
+    display: block;
+    width: 40px;
+    height: 20px;
+    font-size: small;
+}

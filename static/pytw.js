@@ -48,10 +48,12 @@ function get_tweets() {
 function check_limit() {
     var twbox = $('#tw-text');
     var text = twbox.text();
+    var count = $('#tw-count');
 
     if (text == '') return;
 
     var limit = 140 - text.length;
+    count.text(limit);
 
     if (limit > 20) {
         twbox.removeClass('warning');
