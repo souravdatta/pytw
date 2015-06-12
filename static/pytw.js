@@ -1,11 +1,20 @@
 function post_tweet() {
     var twtxt = $('#tw-text').text();
+    var tweets = $('#tw-post');
+
     if (twtxt == '') return;
     $.ajax(
         ('/post/' + twtxt),
         {
             success: function (d, statue, req) {
-                alert(d);
+                if (d == 'success') {
+                    var div = $(document.createElement('div'));
+                    div.addClass('tweet');
+                    tweets.prepend(div);
+                }
+                else {
+                    alert('Could not complete request, something went wrong!');
+                }
             },
             error: function () {
                 alert('Could not complete request, something went wrong!');

@@ -12,7 +12,7 @@ api = None
 
 @app.route('/')
 def index():
-    return render_template('index.html', logo_message='PyTw Simple App')
+    return render_template('index.html', logo_message='PyTw Simple App', logo_link='#')
 
 @app.route('/post/<tweet>')
 def post_tweet(tweet):
@@ -55,6 +55,7 @@ def home():
     for status in tweepy.Cursor(api.user_timeline).items(10):
         tweets.append(status.text)
     return render_template('home.html',
+                           logo_link='https://twitter.com/{}'.format(user.screen_name),
                            logo_message='Hi {}'.format(user.screen_name),
                            tweets=tweets
                            )
