@@ -20,7 +20,8 @@ def home():
     if ('denied' in args) or ('request_token' not in session):
         flash('Could not login, access denied!')
         return redirect('/')
-    verifier = args['oauth_verifier']
+    verifier = args.get('oauth_verifier', '')
+    print('verifier={}'.format(verifier))
     auth = tweepy.OAuthHandler(CONFIG['tw']['consumer_key'],
                                CONFIG['tw']['consumer_secret'])
     token = session['request_token']
