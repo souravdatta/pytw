@@ -5,7 +5,7 @@
         <div class="tw-edit" id="tw-text" contenteditable="true"></div>
         <button class="tw-button" id="tw-post" onclick="post_tweet()">Tweet</button>
     </div>
-    <div class="tweet-feed">
+    <div class="tweet-feed" id="tw-feed">
         {% for t in tweets %}
             <div class="tweet">{{t}}</div>
         {% endfor %}

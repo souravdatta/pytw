@@ -1,6 +1,6 @@
 function post_tweet() {
     var twtxt = $('#tw-text').text();
-    var tweets = $('#tw-post');
+    var tweets = $('#tw-feed');
 
     if (twtxt == '') return;
     $.ajax(
@@ -11,8 +11,7 @@ function post_tweet() {
                     var div = $(document.createElement('div'));
                     div.addClass('tweet');
                     tweets.prepend(div);
-                    twtxt.text('');
-                    twtxt.focus();
+                    $('#tw-text').text('').focus();
                 }
                 else {
                     alert('Could not complete request, something went wrong!');
