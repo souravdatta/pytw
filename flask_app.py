@@ -21,19 +21,24 @@ def home():
         flash('Could not login, access denied!')
         return redirect('/')
     verifier = args.get('oauth_verifier', '')
+    print(verifier)
     auth = tweepy.OAuthHandler(CONFIG['tw']['consumer_key'],
                                CONFIG['tw']['consumer_secret'])
     token = session['request_token']
-    #del session['request_token']
+    session.pop('request_token', None)
     auth.request_token = token
+    print(auth.request_token)
     try:
         auth.get_access_token(verifier)
-        session['access_token'] = auth.access_token
-        session['access_token_secret'] = auth.access_token_secret
+    except tweepy.TweepError as ex:
+        print('Failed to get access token: ', ex)
+        return redirect('/')
+    try:
+        global api
         api = tweepy.API(auth)
         api.update_status('Hello tweepy!')
     except tweepy.TweepError as ex:
-        print('Error in access token ', ex)
+        print('Failed to create twitter api: ', ex)
         return redirect('/')
     return render_template('home.html')
 
@@ -42,6 +47,8 @@ def home():
 def login():
     auth = tweepy.OAuthHandler(CONFIG['tw']['consumer_key'],
                                CONFIG['tw']['consumer_secret'])
+    print(CONFIG['tw']['consumer_key'])
+    print(CONFIG['tw']['consumer_secret'])
 
     if auth is None:
         return redirect('/')
@@ -51,7 +58,7 @@ def login():
         session['request_token'] = auth.request_token
         return redirect(redirect_url)
     except tweepy.TweepError as ex:
-        print('Failed to get request token ', ex)
+        print('Failed to get request token: ', ex)
         return redirect('/')
 
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RTWoaWOA'
