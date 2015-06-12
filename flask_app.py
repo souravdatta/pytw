@@ -12,7 +12,9 @@ api = None
 
 @app.route('/')
 def index():
-    return render_template('index.html', logo_message='PyTw Simple App', logo_link='#')
+    return render_template('index.html',
+                           logo_message='PyTw Simple App',
+                           logo_link='https://github.com/souravdatta/pytw')
 
 @app.route('/post/<tweet>')
 def post_tweet(tweet):
