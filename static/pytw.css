@@ -27,11 +27,13 @@ body {
     border-radius: 10px 10px 0px 0px;
     text-align: center;
     margin-bottom: 10px;
+
     background: -webkit-linear-gradient(90deg, #F1F2B5 10%, #135058 90%); /* Chrome 10+, Saf5.1+ */
     background:    -moz-linear-gradient(90deg, #F1F2B5 10%, #135058 90%); /* FF3.6+ */
     background:     -ms-linear-gradient(90deg, #F1F2B5 10%, #135058 90%); /* IE10 */
     background:      -o-linear-gradient(90deg, #F1F2B5 10%, #135058 90%); /* Opera 11.10+ */
     background:         linear-gradient(90deg, #F1F2B5 10%, #135058 90%); /* W3C */
+
 }
 
 .logo {
@@ -107,6 +109,7 @@ body {
     border-radius: 5px;
     margin: 2px;
     overflow: auto;
+    border: 2px solid #dadada;
 }
 
 .tw-button {
@@ -125,10 +128,10 @@ body {
 .tweet-feed {
     position: relative;
     display: block;
-    width: 90%;
+    width: 96%;
     height: 50%;
     padding: 5px;
-    margin-top: 4px;
+    margin-top: 10px;
     overflow: auto;
     background-color: background-color: rgba(245, 235, 235, 0.6);
 }
