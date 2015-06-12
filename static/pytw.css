@@ -15,7 +15,7 @@ body {
     width: 98%;
     height: 98%;
     left: 5px;
-    background-color: rgba(245, 235, 235, 0.6);
+    background-color: rgba(245, 245, 245, 0.6);
     border-radius: 10px;
 }
 
@@ -128,11 +128,11 @@ body {
     position: relative;
     display: block;
     width: 96%;
-    height: 50%;
+    height: 45%;
     padding: 5px;
-    margin-top: 10px;
+    margin-top: 16px;
     overflow: auto;
-    background-color: background-color: rgba(245, 235, 235, 0.6);
+    background-color: rgba(245, 245, 245, 0.6);
 }
 
 .tweet {
