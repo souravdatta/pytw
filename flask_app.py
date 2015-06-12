@@ -14,7 +14,7 @@ api = None
 @app.route('/')
 def index():
     return render_template('index.html',
-                           logo_message='PyTw Simple App',
+                           logo_message='PyTw - A simple Twitter client in Python',
                            logo_link='https://github.com/souravdatta/pytw')
 
 @app.route('/post/<tweet>')
