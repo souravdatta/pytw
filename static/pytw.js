@@ -1,5 +1,7 @@
+function post_tweet() {
+    alert('Tweet!');
+}
+
 $(document).ready(function () {
-    $('#tw-post').live('click', function () {
-        alert('Yo!');
-    });
+    console.log('Ready...');
 });
