@@ -1,8 +1,5 @@
-(function () {
-    // PyTw app
-
-    var post_tweet = function () {
-        alert('Tweet, eh?');
-    }
-
-})();
+$(document).ready(function () {
+    $('#tw-post').live('click', function () {
+        alert('Yo!');
+    });
+});
