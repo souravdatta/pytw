@@ -12,7 +12,7 @@ api = None
 
 @app.route('/')
 def index():
-    return render_template('index.html', logo_message='PyTw')
+    return render_template('index.html', logo_message='PyTw Simple App')
 
 @app.route('/home')
 def home():
@@ -38,7 +38,13 @@ def home():
         print('Failed to create twitter api: ', ex)
         return redirect('/')
     user = api.me()
-    return render_template('home.html', logo_message='Hi {}'.format(user.screen_name))
+    tweets = []
+    for status in tweepy.Cursor(api.user_timeline).items(10):
+        tweets.append(status.text)
+    return render_template('home.html',
+                           logo_message='Hi {}'.format(user.screen_name),
+                           tweets=tweets
+                           )
 
 
 @app.route('/login')

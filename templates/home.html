@@ -6,6 +6,9 @@
         <button class="tw-button" id="tw-post">Tweet</button>
     </div>
     <div class="tweet-feed">
+        {% for t in tweets %}
+            <div class="tweet">{{t}}</div>
+        {% endfor %}
     </div>
 </div>
 
