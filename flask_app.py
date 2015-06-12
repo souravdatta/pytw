@@ -25,6 +25,7 @@ def home():
     auth = tweepy.OAuthHandler(CONFIG['tw']['consumer_key'],
                                CONFIG['tw']['consumer_secret'])
     token = session['request_token']
+    print('token = {}'.format(token))
     del session['request_token']
     auth.request_token = token
     try:
