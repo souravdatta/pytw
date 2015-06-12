@@ -3,6 +3,11 @@ function post_tweet() {
     var tweets = $('#tw-feed');
 
     if (twtxt == '') return;
+
+    if (twtxt.length > 140) {
+        twtxt = twtxt.substring(0, 138) + '...';
+    }
+
     $.ajax(
         ('/post/' + twtxt),
         {
