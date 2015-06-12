@@ -46,7 +46,7 @@ function get_tweets() {
 }
 
 function check_limit() {
-    var twbox = var twtxt = $('#tw-text');
+    var twbox = $('#tw-text');
     var text = twbox.text();
 
     if (text == '') return;
