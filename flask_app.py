@@ -56,6 +56,8 @@ def home():
 
 @app.route('/twitter')
 def twitter():
+    if 'logged_in' not in session:
+        return redirect('/')
     user = api.me()
     tweets = []
     for status in tweepy.Cursor(api.user_timeline).items(10):
