@@ -31,14 +31,16 @@ def home():
     except tweepy.TweepError as ex:
         print('Failed to get access token: ', ex)
         return redirect('/')
-    print('Access token received: ', auth.access_token_secret, ' ', auth.access_token)
     try:
         global api
         api = tweepy.API(auth)
     except tweepy.TweepError as ex:
         print('Failed to create twitter api: ', ex)
         return redirect('/')
-    print('Created API ', api)
+    try:
+        api.update_status(status='Hello, tweepy!')
+    except tweepy.TweepError as ex:
+        print('Failed to update status: ', ex)
     return render_template('home.html')
 
 
