@@ -32,10 +32,11 @@ def home():
         session['access_token_secret'] = auth.access_token_secret
         api = tweepy.API(auth)
         api.update_status('Hello tweepy!')
-    except:
-        print('Error in access token')
-    finally:
-        return render_template('home.html')
+    except tweepy.TweepError as ex:
+        print('Error in access token ', ex)
+        return redirect('/')
+    return render_template('home.html')
+
 
 @app.route('/login')
 def login():
