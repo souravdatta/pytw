@@ -168,9 +168,9 @@ body {
 
 .loader {
     width: 16px;
-    height: 16px;
+    height: 11px;
     background-image: url('/static/loader.gif');
-    float: right;
+    float: left;
 }
 
 .hide {
