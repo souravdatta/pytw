@@ -165,3 +165,18 @@ body {
     font-size: large;
     float: right;
 }
+
+.loader {
+    display: none;
+    width: 16px;
+    height: 16px;
+    background-image: url('/static/ajax-loader.gif');
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}

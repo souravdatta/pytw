@@ -2,6 +2,7 @@ function post_tweet() {
     var twtxt = $('#tw-text').text();
     var tweets = $('#tw-feed');
     var count = $('#tw-count');
+    var loader = $('.loader');
 
     if (twtxt == '') return;
 
@@ -9,6 +10,7 @@ function post_tweet() {
         twtxt = twtxt.substring(0, 138) + '...';
     }
 
+    loader.addClass('show');
     $.ajax(
         ('/post/' + twtxt),
         {
@@ -25,12 +27,17 @@ function post_tweet() {
             }
         }
     );
+    loader.removeClass('show');
+    loader.addClass('hide');
     $('#tw-text').text('').focus();
     count.text(140);
 }
 
 function get_tweets() {
     var tweets = $('#tw-feed');
+    var loader = $('.loader');
+
+    loader.addClass('show');
     $.ajax('/timeline',
            {
                 success: function (d, status, req) {
@@ -50,6 +57,8 @@ function get_tweets() {
                 }
            }
     );
+    loader.removeClass('show');
+    loader.addClass('hide');
 }
 
 function check_limit() {
