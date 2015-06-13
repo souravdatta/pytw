@@ -22,16 +22,22 @@ function post_tweet() {
                 else {
                     alert('Could not complete request, something went wrong!');
                 }
+
+                loader.removeClass('show');
+                loader.addClass('hide');
+                $('#tw-text').text('').focus();
+                count.text(140);
             },
             error: function () {
                 alert('Could not complete request, something went wrong!');
+
+                loader.removeClass('show');
+                loader.addClass('hide');
+                $('#tw-text').text('').focus();
+                count.text(140);
             }
         }
     );
-    loader.removeClass('show');
-    loader.addClass('hide');
-    $('#tw-text').text('').focus();
-    count.text(140);
 }
 
 function get_tweets() {
@@ -53,14 +59,18 @@ function get_tweets() {
                             tweets.append(div);
                         }
                     }
+
+                    loader.removeClass('show');
+                    loader.addClass('hide');
                 },
                 error: function () {
                     alert('Could not refresh tweets, something went wrong!');
+
+                    loader.removeClass('show');
+                    loader.addClass('hide');
                 }
            }
     );
-    loader.removeClass('show');
-    loader.addClass('hide');
 }
 
 function check_limit() {
