@@ -10,6 +10,7 @@ function post_tweet() {
         twtxt = twtxt.substring(0, 138) + '...';
     }
 
+    loader.removeClass('hide');
     loader.addClass('show');
     $.ajax(
         ('/post/' + twtxt),
@@ -37,6 +38,7 @@ function get_tweets() {
     var tweets = $('#tw-feed');
     var loader = $('.loader');
 
+    loader.removeClass('hide');
     loader.addClass('show');
     $.ajax('/timeline',
            {
