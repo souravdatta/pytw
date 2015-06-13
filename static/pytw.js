@@ -98,5 +98,8 @@ function check_limit() {
 }
 
 $(document).ready(function () {
+    var loader = $('.loader');
+    loader.removeClass('show');
+    loader.addClass('hide');
     console.log('Ready...');
 });
