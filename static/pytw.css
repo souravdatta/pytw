@@ -169,7 +169,7 @@ body {
 .loader {
     width: 16px;
     height: 16px;
-    background-image: url('/static/ajax-loader.gif');
+    background-image: url('/static/loader.gif');
     float: right;
 }
 
