@@ -17,9 +17,10 @@ def index():
                            logo_message='PyTw - A simple Twitter client in Python',
                            logo_link='https://github.com/souravdatta/pytw')
 
-@app.route('/post/<tweet>')
+@app.route('/post')
 def post_tweet(tweet):
-    if tweet == '':
+    tweet = request.args.get('tweet')
+    if tweet is None or tweet == '':
         return
     if 'logged_in' not in session:
         return 'failed'

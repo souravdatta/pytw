@@ -13,7 +13,7 @@ function post_tweet() {
     loader.removeClass('hide');
     loader.addClass('show');
     $.ajax(
-        ('/post/' + twtxt),
+        ('/post?tweet=' + twtxt),
         {
             success: function (d, statue, req) {
                 if (d == 'success') {
