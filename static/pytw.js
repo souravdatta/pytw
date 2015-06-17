@@ -54,7 +54,7 @@ function get_tweets() {
                         tweets.empty();
                         for (var i = 0; i < json.length; i++) {
                             var div = $(document.createElement('div'));
-                            div.text(decodeURIComponent(json[i]));
+                            div.html(decodeURIComponent(json[i]));
                             div.addClass('tweet');
                             tweets.append(div);
                         }
