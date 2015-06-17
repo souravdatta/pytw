@@ -18,7 +18,7 @@ def index():
                            logo_link='https://github.com/souravdatta/pytw')
 
 @app.route('/post')
-def post_tweet(tweet):
+def post_tweet():
     tweet = request.args.get('tweet')
     if tweet is None or tweet == '':
         return
