@@ -1,5 +1,5 @@
 function post_tweet() {
-    var twtxt = $('#tw-text').text();
+    var twtxt = encodeURIComponent($('#tw-text').text());
     var tweets = $('#tw-feed');
     var count = $('#tw-count');
     var loader = $('.loader');
