@@ -78,8 +78,6 @@ function check_limit() {
     var text = twbox.text().trim();
     var count = $('#tw-count');
 
-    if (text == '') return;
-
     var limit = 140 - text.length;
     count.text(limit);
 
