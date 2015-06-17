@@ -1,5 +1,5 @@
 function post_tweet() {
-    var twtxt = encodeURIComponent($('#tw-text').text());
+    var twtxt = encodeURIComponent($('#tw-text').text().trim());
     var tweets = $('#tw-feed');
     var count = $('#tw-count');
     var loader = $('.loader');
@@ -54,7 +54,7 @@ function get_tweets() {
                         tweets.empty();
                         for (var i = 0; i < json.length; i++) {
                             var div = $(document.createElement('div'));
-                            div.text(json[i]);
+                            div.text(decodeURIComponent(json[i]));
                             div.addClass('tweet');
                             tweets.append(div);
                         }
@@ -75,7 +75,7 @@ function get_tweets() {
 
 function check_limit() {
     var twbox = $('#tw-text');
-    var text = twbox.text();
+    var text = twbox.text().trim();
     var count = $('#tw-count');
 
     if (text == '') return;

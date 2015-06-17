@@ -3,7 +3,10 @@
 <div class="twitter-container">
     <div class="tweet-box">
         <div class="tw-edit" id="tw-text" contenteditable="true"
-                onkeydown="check_limit()"
+                onchange="check_limit()"
+                onpaste="check_limit()"
+                oninput="check_limit()"
+                onkeyup="check_limit()"
                 onfocus="check_limit()"
                 onblur="check_limit()"></div>
         <div class="count" id="tw-count">140</div>
